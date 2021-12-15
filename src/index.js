@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CustomWidget from './Widget';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <CustomWidget/>
   </React.StrictMode>,
   document.getElementById('root')
 );

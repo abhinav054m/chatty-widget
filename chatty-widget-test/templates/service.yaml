@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ include "chatty-widget-test.namespace" . }}
+  name: {{ include "chatty-widget-test.fullname" . }}
+  labels:
+    {{- include "chatty-widget-test.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "chatty-widget-test.selectorLabels" . | nindent 4 }}
